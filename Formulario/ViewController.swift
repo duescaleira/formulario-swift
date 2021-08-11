@@ -38,6 +38,14 @@ class ViewController: UIViewController {
         return true
     }
     
+    func isValidEmail () -> Bool {
+        
+        if email.text == "" {
+            return true
+        }
+        return false
+    }
+    
     func isValidTelefone() -> Bool {
         if telefone.text?.count == 9 || telefone.text?.count == 11 {
             return true
@@ -52,8 +60,15 @@ class ViewController: UIViewController {
      //       let valorNumero = Int(telefone) ?? 999999999
             
             let pessoa = Pessoa(nome: nome, cpf: cpf, telefone: telefone, email: email)
-            pessoa.imprimeDados()
+            pessoa.imprimeDados() }
         
+        if isValidEmail() {
+            email.layer.borderWidth = 1
+            email.layer.borderColor = UIColor.red.cgColor
+        }
+        else {
+            email.layer.borderWidth = 1
+            email.layer.borderColor = UIColor.clear.cgColor
         }
         
         if !isValidCPF() {
@@ -83,8 +98,7 @@ class ViewController: UIViewController {
             telefone.layer.borderColor = UIColor.clear.cgColor
             }
         }
+}
         
-    }
-
 
 
